@@ -18,16 +18,17 @@ module Bamboozled
             method:  method
           }
 
-          httparty_options = {
+          httparty_options = base_http_options.merge({
             query:  options[:query],
             body:   options[:body],
             format: :plain,
             basic_auth: auth,
+            timeout: 5,
             headers: {
               "Accept"       => "application/json",
               "User-Agent"   => "Bamboozled/#{Bamboozled::VERSION}"
             }.update(options[:headers] || {})
-          }
+          })
 
           response = HTTParty.send(method, "#{path_prefix}#{path}", httparty_options)
           params[:response] = response.inspect.to_s
