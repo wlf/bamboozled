@@ -30,7 +30,13 @@ module Bamboozled
             }.update(options[:headers] || {})
           }
 
-          response = HTTParty.send(method, "#{path_prefix}#{path}", httparty_options)
+          tries = 3
+          response = begin
+            HTTParty.send(method, "#{path_prefix}#{path}", httparty_options)
+          rescue
+            tries -= 1
+            retry if tries > 0
+          end
           params[:response] = response.inspect.to_s
 
           case response.code

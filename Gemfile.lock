@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bamboozled (0.0.7)
+    bamboozled (0.0.8)
       activesupport
       httparty
       json
@@ -20,9 +20,9 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
-    json (1.8.2)
+    json (1.8.3)
     minitest (4.7.5)
-    multi_json (1.10.1)
+    multi_json (1.12.1)
     multi_xml (0.5.5)
     rake (10.3.2)
     safe_yaml (1.0.4)
@@ -42,3 +42,6 @@ DEPENDENCIES
   rake
   turn
   webmock
+
+BUNDLED WITH
+   1.13.2
